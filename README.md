@@ -109,6 +109,8 @@ To make sure pods will also be scheduled on this node.
 kubectl taint nodes --all node-role.kubernetes.io/master-
 ```
 
+# WAIT - for the next lab
+
 ## Ingress controller
 
 As an ingress controller 'nginx-ingress' will be used.
@@ -118,6 +120,9 @@ More information: https://kubernetes.github.io/ingress-nginx/deploy/
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/mandatory.yaml
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/provider/baremetal/service-nodeport.yaml
 ```
+
+
+# WAIT - for the next lab
 
 ## Deploy 'Whack-A-Pod'
 
@@ -252,6 +257,9 @@ make clean.generic
 ## (EXTRA) Add an additional node
 
 * Login to the new node (host)
+
+
+# WAIT - for the next lab
 
 ### Install CRI - Docker
 
