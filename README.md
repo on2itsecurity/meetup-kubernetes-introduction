@@ -254,12 +254,13 @@ Go to the browser of your windows jumphost, and go to desired url:
 make clean.generic
 ```
 
+
+# WAIT - for the next lab
+
 ## (EXTRA) Add an additional node
 
 * Login to the new node (host)
 
-
-# WAIT - for the next lab
 
 ### Install CRI - Docker
 
