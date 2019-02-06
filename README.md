@@ -132,8 +132,9 @@ More info: https://github.com/tpryan/whack_a_pod
 
 ```bash
 cd
-git clone https://github.com/tpryan/whack_a_pod.git
+git clone https://github.com/ljkoning/whack_a_pod.git
 ```
+(Note: original repo: git clone https://github.com/tpryan/whack_a_pod.git)
 
 ### Deploy the game
 
@@ -155,53 +156,6 @@ Edit DOCKERREPO in Makefile.properties
 nano Makefile.properties
 
 DOCKERREPO=cloudowski
-```
-
-Now we need to fix a bug in Whackamole, edit the file:
-
-```text
-nano ~/whack_a_pod/apps/ingress/ingress.generic.yaml
-```
-
-Make it look like this: (Changes: add the the ```$1``` at the end of the rewrite target, and the ```(.*)``` instead of ```*``` 3 times in the paths)
-
-```text
-# Copyright 2017 Google Inc. All Rights Reserved.
-
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-
-#     http://www.apache.org/licenses/LICENSE-2.0
-
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: wap-ingress
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-spec:
-  rules:
-  - http:
-      paths:
-      - path: /api/(.*)
-        backend:
-          serviceName: api
-          servicePort: 8080
-      - path: /admin/(.*)
-        backend:
-          serviceName: admin
-          servicePort: 8080
-      - path: /(.*)
-        backend:
-          serviceName: game
-          servicePort: 8080
-    host: whackapod.example.com
 ```
 
 Deploy the game.
